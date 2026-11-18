@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriVida | Guia de Nutrição e Bem-Estar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              50: '#f3f7f4',
+              100: '#e2ece4',
+              200: '#c6d9ca',
+              500: '#4a7c59',
+              600: '#3a6346',
+              700: '#2d4f37',
+              800: '#1f3827',
+              900: '#142419',
+            },
+            sand: {
+              50: '#fcfaf7',
+              100: '#f6f1ea',
+              200: '#ebe2d5',
+              300: '#dccbb5',
+            },
+            terracotta: {
+              400: '#e07a5f',
+              500: '#c95d41',
+              600: '#a8472e',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-sand-50 text-stone-800 font-sans antialiased selection:bg-forest-200 selection:text-forest-900">
+
+  <!-- Cabeçalho Fixo -->
+  <header class="fixed top-0 w-full z-50 bg-sand-50/90 backdrop-blur-md border-b border-sand-200 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-2 group">
+        <span class="w-9 h-9 rounded-full bg-forest-600 text-white flex items-center justify-center shadow-sm group-hover:bg-forest-700 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c-4.97 0-9 4.03-9 9 0 3.92 2.51 7.24 6 8.48V21h6v-.52c3.49-1.24 6-4.56 6-8.48 0-4.97-4.03-9-9-9zm0 0v18m0-12c2.5-2.5 6-2.5 6-2.5s0 3.5-2.5 6m-3.5-1c-2.5-2.5-6-2.5-6-2.5s0 3.5 2.5 6"/>
+          </svg>
+        </span>
+        <span class="font-serif text-xl font-bold text-forest-800 tracking-tight">Nutri<span class="text-terracotta-500">Vida</span></span>
+      </a>
+
+      <!-- Navegação Desktop -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-stone-600">
+        <a href="#pilares" class="hover:text-forest-600 transition">Pilares</a>
+        <a href="#calculadora" class="hover:text-forest-600 transition">Calculadora</a>
+        <a href="#mitos" class="hover:text-forest-600 transition">Mitos & Dicas</a>
+        <a href="#refeicoes" class="hover:text-forest-600 transition">Refeições</a>
+      </nav>
+
+      <div class="hidden md:block">
+        <a href="#calculadora" class="bg-forest-600 hover:bg-forest-700 text-white text-sm font-medium px-4 py-2 rounded-full shadow-sm transition">
+          Calcular Metas
+        </a>
+      </div>
+
+      <!-- Botão Menu Mobile -->
+      <button id="menu-btn" aria-label="Abrir menu" class="md:hidden p-2 rounded-lg text-stone-700 hover:bg-sand-200 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-sand-50 border-b border-sand-200 px-6 py-4 space-y-3">
+      <a href="#pilares" class="block text-stone-700 hover:text-forest-600 font-medium">Pilares da Nutrição</a>
+      <a href="#calculadora" class="block text-stone-700 hover:text-forest-600 font-medium">Calculadora de IMC & Água</a>
+      <a href="#mitos" class="block text-stone-700 hover:text-forest-600 font-medium">Mitos vs. Verdades</a>
+      <a href="#refeicoes" class="block text-stone-700 hover:text-forest-600 font-medium">Ideias de Refeições</a>
+    </div>
+  </header>
+
+  <!-- Seção Hero -->
+  <section id="inicio" class="pt-28 pb-16 md:pt-36 md:pb-24 px-4 sm:px-6 bg-gradient-to-b from-forest-50/70 to-sand-50">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 items-center">
+      <div class="md:col-span-7 space-y-6">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-100 text-forest-700 text-xs font-semibold uppercase tracking-wider">
+          Alimentação Consciente & Equilíbrio
+        </span>
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-forest-900 leading-tight">
+          Nutrir o corpo é o primeiro passo para uma vida com <span class="text-terracotta-500 italic">energia e clareza.</span>
+        </h1>
+        <p class="text-stone-600 text-lg leading-relaxed max-w-xl">
+          Sem dietas restritivas ou fórmulas mágicas. Descubra como combinar nutrientes reais, calcular suas metas diárias e transformar sua relação com a comida.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#calculadora" class="bg-forest-600 hover:bg-forest-700 text-white font-medium px-6 py-3.5 rounded-full shadow-md hover:shadow-lg transition">
+            Descubra suas Metas Diárias
+          </a>
+          <a href="#pilares" class="bg-white hover:bg-sand-100 text-forest-800 border border-sand-300 font-medium px-6 py-3.5 rounded-full transition">
+            Explorar Pilares
+          </a>
+        </div>
+        <div class="pt-4 flex items-center gap-6 text-sm text-stone-500">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-forest-500"></span> Comida de verdade
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-terracotta-400"></span> Baseado em ciência
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-forest-500"></span> Hábitos sustentáveis
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Visual Hero -->
+      <div class="md:col-span-5">
+        <div class="relative bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-sand-200">
+          <div class="absolute -top-4 -right-4 bg-terracotta-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow">
+            Prato Equilibrado
+          </div>
+          <h2 class="font-serif text-xl font-bold text-forest-900 mb-4">A Regra Simples do Prato</h2>
+          <div class="space-y-4">
+            <div class="p-3.5 rounded-2xl bg-forest-50 border border-forest-100 flex items-center gap-4">
+              <div class="w-11 h-11 rounded-xl bg-forest-600 text-white font-bold flex items-center justify-center shrink-0">50%</div>
+              <div>
+                <h3 class="font-semibold text-forest-900 text-sm">Vegetais e Legumes</h3>
+                <p class="text-xs text-stone-600">Fibras, vitaminas, minerais e antioxidantes variados.</p>
+              </div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-amber-50/70 border border-amber-200/60 flex items-center gap-4">
+              <div class="w-11 h-11 rounded-xl bg-amber-600 text-white font-bold flex items-center justify-center shrink-0">25%</div>
+              <div>
+                <h3 class="font-semibold text-stone-900 text-sm">Carboidratos Complexos</h3>
+                <p class="text-xs text-stone-600">Arroz integral, batata-doce, mandioca, aveia ou quinoa.</p>
+              </div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-terracotta-400/10 border border-terracotta-400/30 flex items-center gap-4">
+              <div class="w-11 h-11 rounded-xl bg-terracotta-500 text-white font-bold flex items-center justify-center shrink-0">25%</div>
+              <div>
+                <h3 class="font-semibold text-stone-900 text-sm">Proteínas Magras & Leguminosas</h3>
+                <p class="text-xs text-stone-600">Feijão, lentilha, grão-de-bico, ovos, peixes ou frango.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilares da Nutrição -->
+  <section id="pilares" class="py-16 md:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="text-terracotta-500 font-semibold text-xs uppercase tracking-widest">Fundamentos</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900 mt-2">Os 4 Pilares da Nutrição</h2>
+      <p class="text-stone-600 mt-3">Entenda o papel essencial de cada grupo alimentar para manter seu metabolismo ativo e sua imunidade fortalecida.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Pilar 1 -->
+      <div class="bg-white rounded-2xl p-6 border border-sand-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mb-5 text-2xl">🌾</div>
+          <h3 class="font-serif text-xl font-bold text-forest-900 mb-2">Carboidratos Complexos</h3>
+          <p class="text-sm text-stone-600 leading-relaxed mb-4">
+            Principal fonte de energia para o cérebro e músculos. Por terem digestão lenta, evitam picos de glicose e prolongam a saciedade.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-sand-100 text-xs text-stone-500">
+          <strong class="text-stone-700">Fontes:</strong> Aveia, arroz integral, inhame, frutas com casca, pães integrais.
+        </div>
+      </div>
+
+      <!-- Pilar 2 -->
+      <div class="bg-white rounded-2xl p-6 border border-sand-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-terracotta-400/15 text-terracotta-600 flex items-center justify-center mb-5 text-2xl">🥚</div>
+          <h3 class="font-serif text-xl font-bold text-forest-900 mb-2">Proteínas</h3>
+          <p class="text-sm text-stone-600 leading-relaxed mb-4">
+            Essenciais para construção muscular, reparo de tecidos, produção de enzimas, hormônios e fortalecimento do sistema imune.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-sand-100 text-xs text-stone-500">
+          <strong class="text-stone-700">Fontes:</strong> Ovos, peixes, frango, tofu, feijão, lentilha, grão-de-bico e iogurte natural.
+        </div>
+      </div>
+
+      <!-- Pilar 3 -->
+      <div class="bg-white rounded-2xl p-6 border border-sand-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-forest-100 text-forest-700 flex items-center justify-center mb-5 text-2xl">🥑</div>
+          <h3 class="font-serif text-xl font-bold text-forest-900 mb-2">Gorduras Boas</h3>
+          <p class="text-sm text-stone-600 leading-relaxed mb-4">
+            Fundamentais para a absorção das vitaminas A, D, E e K, saúde cardiovascular, função cerebral e controle de processos inflamatórios.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-sand-100 text-xs text-stone-500">
+          <strong class="text-stone-700">Fontes:</strong> Azeite extravirgem, abacate, castanhas, nozes, chia e linhaça.
+        </div>
+      </div>
+
+      <!-- Pilar 4 -->
+      <div class="bg-white rounded-2xl p-6 border border-sand-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center mb-5 text-2xl">💧</div>
+          <h3 class="font-serif text-xl font-bold text-forest-900 mb-2">Hidratação</h3>
+          <p class="text-sm text-stone-600 leading-relaxed mb-4">
+            A água regula a temperatura corporal, transporta nutrientes, auxilia na digestão, lubrifica articulações e mantém o foco mental.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-sand-100 text-xs text-stone-500">
+          <strong class="text-stone-700">Fontes:</strong> Água pura, chás sem açúcar, água de coco e frutas ricas em água.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora Interativa -->
+  <section id="calculadora" class="py-16 md:py-24 px-4 sm:px-6 bg-forest-800 text-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-terracotta-400 font-semibold text-xs uppercase tracking-widest">Ferramenta Prática</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Calculadora de IMC & Hidratação</h2>
+        <p class="text-forest-100 mt-3 text-sm sm:text-base">
+          Insira seus dados abaixo para estimar seu Índice de Massa Corporal e a quantidade ideal de água por dia.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-12 gap-8 items-stretch">
+        <!-- Formulário -->
+        <form id="health-form" class="md:col-span-6 bg-forest-900/80 border border-forest-700 rounded-3xl p-6 sm:p-8 space-y-5">
+          <div>
+            <label for="peso" class="block text-sm font-medium text-forest-100 mb-1.5">Seu Peso (kg)</label>
+            <input type="number" id="peso" step="0.1" min="20" max="300" placeholder="Ex: 68.5" required
+              class="w-full px-4 py-3 rounded-xl bg-forest-800 border border-forest-600 text-white placeholder-forest-400 focus:outline-none focus:border-terracotta-400 transition">
+          </div>
+
+          <div>
+            <label for="altura" class="block text-sm font-medium text-forest-100 mb-1.5">Sua Altura (cm)</label>
+            <input type="number" id="altura" min="100" max="250" placeholder="Ex: 172" required
+              class="w-full px-4 py-3 rounded-xl bg-forest-800 border border-forest-600 text-white placeholder-forest-400 focus:outline-none focus:border-terracotta-400 transition">
+          </div>
+
+          <div>
+            <label for="atividade" class="block text-sm font-medium text-forest-100 mb-1.5">Nível de Atividade Física</label>
+            <select id="atividade"
+              class="w-full px-4 py-3 rounded-xl bg-forest-800 border border-forest-600 text-white focus:outline-none focus:border-terracotta-400 transition">
+              <option value="35">Sedentário ou leve (35 ml/kg)</option>
+              <option value="40" selected>Moderado — 3 a 4x/semana (40 ml/kg)</option>
+              <option value="45">Intenso — treinos diários (45 ml/kg)</option>
+            </select>
+          </div>
+
+          <button type="submit"
+            class="w-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold py-3.5 rounded-xl shadow-lg transition cursor-pointer">
+            Calcular Resultados
+          </button>
+        </form>
+
+        <!-- Resultados -->
+        <div class="md:col-span-6 bg-white text-stone-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl">
+          <div id="result-placeholder" class="my-auto text-center py-8 space-y-3">
+            <div class="w-14 h-14 rounded-full bg-forest-100 text-forest-700 mx-auto flex items-center justify-center text-2xl">📊</div>
+            <h3 class="font-serif text-xl font-bold text-forest-900">Seus resultados aparecerão aqui</h3>
+            <p class="text-sm text-stone-500 max-w-xs mx-auto">
+              Preencha seu peso, altura e rotina ao lado para visualizar seu diagnóstico inicial.
+            </p>
+          </div>
+
+          <div id="result-content" class="hidden space-y-6">
+            <!-- IMC -->
+            <div class="p-5 rounded-2xl bg-sand-100 border border-sand-200">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-semibold uppercase tracking-wider text-stone-500">Seu IMC Estimado</span>
+                <span id="imc-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-forest-600 text-white">Peso Normal</span>
+              </div>
+              <div class="text-3xl font-bold text-forest-900" id="imc-value">22.5 kg/m²</div>
+              <p id="imc-desc" class="text-xs text-stone-600 mt-2 leading-relaxed"></p>
+            </div>
+
+            <!-- Água -->
+            <div class="p-5 rounded-2xl bg-sky-50 border border-sky-100">
+              <span class="text-xs font-semibold uppercase tracking-wider text-sky-700">Meta Diária de Água</span>
+              <div class="flex items-baseline gap-3 mt-1">
+                <span class="text-3xl font-bold text-sky-950" id="water-liters">2.7 L</span>
+                <span class="text-sm font-medium text-sky-700" id="water-cups">(~11 copos de 250ml)</span>
+              </div>
+              <p class="text-xs text-stone-600 mt-2">
+                Dica: Distribua essa quantidade ao longo do dia, bebendo 1 copo logo ao acordar e antes das refeições.
+              </p>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-stone-400 mt-6 pt-4 border-t border-sand-200">
+            * O IMC é um indicador geral e não diferencia massa muscular de gordura corporal.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mitos vs Verdades & Dicas -->
+  <section id="mitos" class="py-16 md:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-terracotta-500 font-semibold text-xs uppercase tracking-widest">Descomplicando</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900 mt-2">Mitos vs. Verdades & Dicas Práticas</h2>
+    </div>
+
+    <!-- Abas -->
+    <div class="flex justify-center gap-3 mb-10">
+      <button id="tab-mitos" onclick="switchTab('mitos')"
+        class="px-5 py-2.5 rounded-full text-sm font-semibold bg-forest-600 text-white shadow-sm transition cursor-pointer">
+        Mitos vs. Verdades
+      </button>
+      <button id="tab-dicas" onclick="switchTab('dicas')"
+        class="px-5 py-2.5 rounded-full text-sm font-semibold bg-sand-200 text-stone-700 hover:bg-sand-300 transition cursor-pointer">
+        Dicas para o Dia a Dia
+      </button>
+    </div>
+
+    <!-- Conteúdo Aba Mitos -->
+    <div id="panel-mitos" class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-md bg-red-100 text-red-700 text-xs font-bold">MITO</span>
+          <h3 class="font-bold text-stone-900">"Carboidrato à noite engorda."</h3>
+        </div>
+        <p class="text-sm text-stone-600 leading-relaxed">
+          <strong class="text-forest-700">Verdade:</strong> O ganho de peso depende do saldo calórico total ao longo do dia e da qualidade dos alimentos, não do relógio. Carboidratos integrais no jantar podem até melhorar a qualidade do sono.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-md bg-red-100 text-red-700 text-xs font-bold">MITO</span>
+          <h3 class="font-bold text-stone-900">"Sucos detox limpam as toxinas do organismo."</h3>
+        </div>
+        <p class="text-sm text-stone-600 leading-relaxed">
+          <strong class="text-forest-700">Verdade:</strong> Quem faz a desintoxicação natural do corpo são o fígado e os rins. Sucos verdes são ótimos para adicionar micronutrientes, mas não substituem refeições nem fazem milagres isolados.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-md bg-red-100 text-red-700 text-xs font-bold">MITO</span>
+          <h3 class="font-bold text-stone-900">"Produtos diet e light são sempre mais saudáveis."</h3>
+        </div>
+        <p class="text-sm text-stone-600 leading-relaxed">
+          <strong class="text-forest-700">Verdade:</strong> Muitos produtos industrializados sem açúcar ou gordura recebem excesso de sódio, adoçantes artificiais e conservantes para manter o sabor. Leia sempre a lista de ingredientes.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm space-y-3">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-md bg-red-100 text-red-700 text-xs font-bold">MITO</span>
+          <h3 class="font-bold text-stone-900">"Comer de 3 em 3 horas acelera o metabolismo."</h3>
+        </div>
+        <p class="text-sm text-stone-600 leading-relaxed">
+          <strong class="text-forest-700">Verdade:</strong> O fracionamento das refeições ajuda a controlar a fome em algumas pessoas, mas não acelera o gasto calórico. O mais importante é respeitar seus sinais reais de fome e saciedade.
+        </p>
+      </div>
+    </div>
+
+    <!-- Conteúdo Aba Dicas -->
+    <div id="panel-dicas" class="hidden grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm">
+        <span class="text-2xl">🥗</span>
+        <h3 class="font-bold text-forest-900 mt-3 mb-2">Comece pela salada</h3>
+        <p class="text-sm text-stone-600">Comer vegetais crus antes do prato principal aumenta a ingestão de fibras e reduz a velocidade de absorção dos carboidratos.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm">
+        <span class="text-2xl">🏷️</span>
+        <h3 class="font-bold text-forest-900 mt-3 mb-2">Leia o rótulo em ordem</h3>
+        <p class="text-sm text-stone-600">Os ingredientes aparecem em ordem decrescente de quantidade. Se açúcar ou gordura aparecerem nos 3 primeiros itens, evite no dia a dia.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm">
+        <span class="text-2xl">🧘</span>
+        <h3 class="font-bold text-forest-900 mt-3 mb-2">Coma sem telas</h3>
+        <p class="text-sm text-stone-600">Mastigar com atenção permite que o cérebro receba os hormônios da saciedade (leptina), evitando exageros sem perceber.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm">
+        <span class="text-2xl">🌈</span>
+        <h3 class="font-bold text-forest-900 mt-3 mb-2">Quanto mais cores, melhor</h3>
+        <p class="text-sm text-stone-600">Cada cor nos vegetais indica diferentes fitoquímicos e antioxidantes. Varie entre folhas verdes, cenoura, beterraba e tomate.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm">
+        <span class="text-2xl">🥡</span>
+        <h3 class="font-bold text-forest-900 mt-3 mb-2">Planeje o básico</h3>
+        <p class="text-sm text-stone-600">Deixar folhas higienizadas, feijão cozido e uma proteína pronta na geladeira evita pedidos impulsivos de fast-food.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm">
+        <span class="text-2xl">⚖️</span>
+        <h3 class="font-bold text-forest-900 mt-3 mb-2">Regra 80/20</h3>
+        <p class="text-sm text-stone-600">Mantenha 80% da alimentação baseada em comidas naturais e nutritivas, deixando 20% livres para momentos sociais sem culpa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideias de Refeições Balanceadas -->
+  <section id="refeicoes" class="py-16 md:py-24 px-4 sm:px-6 bg-sand-100/80 border-t border-sand-200">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+        <div>
+          <span class="text-terracotta-500 font-semibold text-xs uppercase tracking-widest">Inspiração na Cozinha</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900 mt-2">Ideias de Refeições Balanceadas</h2>
+        </div>
+
+        <!-- Filtros -->
+        <div class="flex flex-wrap gap-2" id="meal-filters">
+          <button data-filter="todos" class="filter-btn active px-4 py-2 rounded-full text-xs font-semibold bg-forest-600 text-white transition cursor-pointer">Todas</button>
+          <button data-filter="cafe" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white text-stone-700 border border-sand-300 hover:bg-sand-200 transition cursor-pointer">Café da Manhã</button>
+          <button data-filter="almoco" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white text-stone-700 border border-sand-300 hover:bg-sand-200 transition cursor-pointer">Almoço</button>
+          <button data-filter="lanche" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white text-stone-700 border border-sand-300 hover:bg-sand-200 transition cursor-pointer">Lanche</button>
+          <button data-filter="jantar" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white text-stone-700 border border-sand-300 hover:bg-sand-200 transition cursor-pointer">Jantar</button>
+        </div>
+      </div>
+
+      <div id="meals-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Renderizado via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-forest-900 text-forest-100 py-12 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto space-y-8">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-forest-800">
+        <div>
+          <span class="font-serif text-2xl font-bold text-white">Nutri<span class="text-terracotta-400">Vida</span></span>
+          <p class="text-sm text-forest-200 mt-1">Educação alimentar simples, acessível e baseada em equilíbrio.</p>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm text-forest-200">
+          <a href="#inicio" class="hover:text-white transition">Início</a>
+          <a href="#pilares" class="hover:text-white transition">Pilares</a>
+          <a href="#calculadora" class="hover:text-white transition">Calculadora</a>
+          <a href="#mitos" class="hover:text-white transition">Mitos & Dicas</a>
+          <a href="#refeicoes" class="hover:text-white transition">Refeições</a>
+        </div>
+      </div>
+
+      <!-- Aviso Educativo -->
+      <div class="bg-forest-800/80 border border-forest-700 rounded-2xl p-4 text-xs text-forest-200 leading-relaxed">
+        <strong class="text-white">Aviso Importante:</strong> As informações, cálculos e sugestões de refeições apresentadas neste site têm caráter exclusivamente educativo e informativo. Este conteúdo não substitui a avaliação, o diagnóstico ou o plano alimentar individualizado prescrito por um <strong>nutricionista</strong> ou <strong>médico</strong>.
+      </div>
+
+      <div class="text-center text-xs text-forest-400">
+        &copy; 2026 NutriVida. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menu Mobile
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Calculadora de IMC e Hidratação
+    const healthForm = document.getElementById('health-form');
+    healthForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const peso = parseFloat(document.getElementById('peso').value);
+      const alturaCm = parseFloat(document.getElementById('altura').value);
+      const mlPorKg = parseFloat(document.getElementById('atividade').value);
+
+      if (!peso || !alturaCm || peso <= 0 || alturaCm <= 0) return;
+
+      const alturaM = alturaCm / 100;
+      const imc = peso / (alturaM * alturaM);
+      const aguaLitros = (peso * mlPorKg) / 1000;
+      const copos = Math.round((aguaLitros * 1000) / 250);
+
+      let categoria = '';
+      let badgeColor = '';
+      let desc = '';
+
+      if (imc < 18.5) {
+        categoria = 'Abaixo do Peso';
+        badgeColor = 'bg-amber-500 text-white';
+        desc = 'Seu IMC indica baixo peso. Foque em refeições nutritivas e ricas em proteínas e gorduras boas, com acompanhamento profissional.';
+      } else if (imc < 25) {
+        categoria = 'Peso Adequado';
+        badgeColor = 'bg-forest-600 text-white';
+        desc = 'Excelente! Seu IMC está na faixa considerada adequada. Mantenha hábitos equilibrados, boa hidratação e atividade física regular.';
+      } else if (imc < 30) {
+        categoria = 'Sobrepeso';
+        badgeColor = 'bg-amber-600 text-white';
+        desc = 'Seu IMC indica sobrepeso. Pequenos ajustes como aumentar fibras, reduzir ultraprocessados e manter constância nos exercícios ajudam muito.';
+      } else {
+        categoria = 'Obesidade';
+        badgeColor = 'bg-terracotta-600 text-white';
+        desc = 'Seu IMC aponta para obesidade. Recomenda-se acompanhamento médico e nutricional personalizado para promover saúde com segurança.';
+      }
+
+      document.getElementById('result-placeholder').classList.add('hidden');
+      document.getElementById('result-content').classList.remove('hidden');
+
+      document.getElementById('imc-value').textContent = `${imc.toFixed(1)} kg/m²`;
+      const badge = document.getElementById('imc-badge');
+      badge.textContent = categoria;
+      badge.className = `text-xs font-bold px-3 py-1 rounded-full ${badgeColor}`;
+      document.getElementById('imc-desc').textContent = desc;
+
+      document.getElementById('water-liters').textContent = `${aguaLitros.toFixed(1)} L`;
+      document.getElementById('water-cups').textContent = `(~${copos} copos de 250ml)`;
+    });
+
+    // Abas Mitos vs Dicas
+    function switchTab(tab) {
+      const btnMitos = document.getElementById('tab-mitos');
+      const btnDicas = document.getElementById('tab-dicas');
+      const panelMitos = document.getElementById('panel-mitos');
+      const panelDicas = document.getElementById('panel-dicas');
+
+      if (tab === 'mitos') {
+        btnMitos.className = 'px-5 py-2.5 rounded-full text-sm font-semibold bg-forest-600 text-white shadow-sm transition cursor-pointer';
+        btnDicas.className = 'px-5 py-2.5 rounded-full text-sm font-semibold bg-sand-200 text-stone-700 hover:bg-sand-300 transition cursor-pointer';
+        panelMitos.classList.remove('hidden');
+        panelDicas.classList.add('hidden');
+      } else {
+        btnDicas.className = 'px-5 py-2.5 rounded-full text-sm font-semibold bg-forest-600 text-white shadow-sm transition cursor-pointer';
+        btnMitos.className = 'px-5 py-2.5 rounded-full text-sm font-semibold bg-sand-200 text-stone-700 hover:bg-sand-300 transition cursor-pointer';
+        panelDicas.classList.remove('hidden');
+        panelMitos.classList.add('hidden');
+      }
+    }
+
+    // Dados e Filtro de Refeições
+    const meals = [
+      {
+        title: 'Ovos Mexidos com Pão Integral e Mamão',
+        category: 'cafe',
+        tag: 'Café da Manhã',
+        kcal: '~380 kcal',
+        emoji: '🍳',
+        desc: 'Proteína de alta absorção combinada com fibras integrais e enzimas digestivas naturais.'
+      },
+      {
+        title: 'Overnight Oats com Chia e Frutas Vermelhas',
+        category: 'cafe',
+        tag: 'Café da Manhã',
+        kcal: '~340 kcal',
+        emoji: '🥣',
+        desc: 'Aveia hidratada no iogurte natural com ômega-3 da chia e antioxidantes das frutas.'
+      },
+      {
+        title: 'Prato Clássico: Arroz, Feijão, Frango e Salada',
+        category: 'almoco',
+        tag: 'Almoço',
+        kcal: '~520 kcal',
+        emoji: '🥗',
+        desc: 'A dupla brasileira oferece aminoácidos completos, acompanhada de grelhado e folhas verdes.'
+      },
+      {
+        title: 'Salmão Assado com Purê de Batata-Doce e Brócolis',
+        category: 'almoco',
+        tag: 'Almoço',
+        kcal: '~560 kcal',
+        emoji: '🐟',
+        desc: 'Rico em gorduras anti-inflamatórias, carboidrato de baixo índice glicêmico e cálcio vegetal.'
+      },
+      {
+        title: 'Iogurte Natural com Castanhas e Mel',
+        category: 'lanche',
+        tag: 'Lanche',
+        kcal: '~220 kcal',
+        emoji: '🥜',
+        desc: 'Lanche rápido que equilibra probióticos, gorduras boas e energia na medida certa.'
+      },
+      {
+        title: 'Banana Amassada com Aveia e Canela',
+        category: 'lanche',
+        tag: 'Lanche',
+        kcal: '~210 kcal',
+        emoji: '🍌',
+        desc: 'Fonte prática de potássio e fibras solúveis, ideal para o pré-treino ou tarde corrida.'
+      },
+      {
+        title: 'Omelete de Espinafre com Tomate e Queijo Branco',
+        category: 'jantar',
+        tag: 'Jantar',
+        kcal: '~330 kcal',
+        emoji: '🌿',
+        desc: 'Refeição leve, de fácil digestão e rica em proteínas para a recuperação noturna.'
+      },
+      {
+        title: 'Creme de Abóbora Cabotiá com Frango Desfiado',
+        category: 'jantar',
+        tag: 'Jantar',
+        kcal: '~360 kcal',
+        emoji: '🍲',
+        desc: 'Reconfortante, rico em betacaroteno e com excelente aporte proteico sem pesar no estômago.'
+      }
+    ];
+
+    const mealsGrid = document.getElementById('meals-grid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    function renderMeals(filter = 'todos') {
+      const filtered = filter === 'todos' ? meals : meals.filter(m => m.category === filter);
+      mealsGrid.innerHTML = filtered.map(meal => `
+        <div class="bg-white rounded-2xl p-5 border border-sand-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-3xl">${meal.emoji}</span>
+              <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-forest-50 text-forest-700 border border-forest-100">
+                ${meal.tag}
+              </span>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-forest-900 leading-snug mb-2">${meal.title}</h3>
+            <p class="text-xs text-stone-600 leading-relaxed mb-4">${meal.desc}</p>
+          </div>
+          <div class="pt-3 border-t border-sand-100 flex items-center justify-between text-xs">
+            <span class="text-stone-400">Estimativa</span>
+            <span class="font-semibold text-terracotta-600">${meal.kcal}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.className = 'filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white text-stone-700 border border-sand-300 hover:bg-sand-200 transition cursor-pointer';
+        });
+        btn.className = 'filter-btn active px-4 py-2 rounded-full text-xs font-semibold bg-forest-600 text-white transition cursor-pointer';
+        renderMeals(btn.dataset.filter);
+      });
+    });
+
+    renderMeals();
+  </script>
+</body>
+</html>
